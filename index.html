@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Predictes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css" type="text/css" />
+    <meta name="viewport" content="width=device-width">
+
+
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css" type="text/css" />
 
 </head>
 <body>
@@ -13,29 +16,34 @@
     <div class="container">
         <div class="row">
             <div class="col-50">
-                <img src="./images/logo.svg"/>
+                <img class="logo" src="./images/logo.svg"/>
             </div>
-            <div class="col-50 col-50--directionColumn">
-                <div class="row  row--50 row--alignRight row--directionColumn">
-                    <ul class="list list--100 list--alignRight ">
-                        <li class=" listElement listElement--33"><img src="images/phone.png"/>+48 618 908 392</li>
-                        <li class=" listElement listElement--33"><img src="images/post.png"/> office@predictes.com</li>
-                    </ul>
-                </div>
-                <div class="row  row--50">
+            <div class="col-50 col-50--rightAlign">
+                <div class="hamburgerMenu"></div>
+                <div class="row--hidden row-colDirection">
+                    <div class="">
+                        <ul class="list list--100 list--alignRight ">
+                            <li class=" listElement listElement--33"><img src="images/phone.png"/>+48 618 908 392</li>
+                            <li class=" listElement listElement--33"><img src="images/post.png"/> office@predictes.com</li>
+                        </ul>
+                    </div>
+
+                <div class="">
                     <ul class="list list--100">
-                        <li class="listElement listElement--20"><a class="link link--colorWhite text--uppercase text--bold " href="#">O Firmie</a>
+                        <li class="listElement listElement--20 openMenu">
+                            <p class="link link--colorWhite text--uppercase text--bold ">O Firmie</p>
                             <ul class="list--hidden">
-                                <li class="listElement listElement--padding listElement--alignLeft"><a class="link" href="#">O nas</a></li>
+                                <li class="listElement listElement--padding listElement--alignLeft"><p class="link" href="#">O nas</p></li>
                                 <li class="listElement listElement--padding listElement--alignLeft"><a class="link" href="#">Historia</a></li>
                                 <li class="listElement listElement--padding listElement--alignLeft"><a class="link" href="#" >Zespół</a></li>
                             </ul>
                         </li>
-                        <li class="text--uppercase text--bold listElement listElement--20"><a href="#" class="link link--colorWhite text--uppercase text--bold " >Realizacje</a></li>
-                        <li class="text--uppercase text--bold listElement listElement--20"><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Blog</a></li>
-                        <li class="text--uppercase text--bold listElement listElement--20"><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Partnerzy</a></li>
-                        <li class="text--uppercase text--bold listElement listElement--20"><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Kontakt</a></li>
+                        <li class="listElement listElement--20 "><a href="#" class="link link--colorWhite text--uppercase text--bold " >Realizacje</a></li>
+                        <li class="listElement listElement--20 "><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Blog</a></li>
+                        <li class="listElement listElement--20 "><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Partnerzy</a></li>
+                        <li class="listElement listElement--20 "><a href="#"  class="link link--colorWhite text--uppercase text--bold ">Kontakt</a></li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>
