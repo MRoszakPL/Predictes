@@ -166,6 +166,7 @@ body{
         display: flex;
         flex-direction: row;
         height: 100%;
+        width: 100%;
         margin-top: 0;
         margin-bottom: 0;
         justify-content: flex-end;
@@ -174,6 +175,13 @@ body{
     .listElement{
         justify-content: center;
         align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 0 0;
+    }
+
+    .listElement--padding{
+        padding-left: 1rem;
     }
 
     .listElement--alignLeft{
@@ -183,14 +191,35 @@ body{
     .listElement--20{
         width: 20%;
     }
+    .listElement--33{
+        width: 33%;
+    }
 
     .openMenu:hover .list--hidden{
-        display: block;
+        position: absolute;
+        flex-direction: column;
+        display: flex;
+        z-index: 1;
+        top: 78px;
+        width: 10%;height: 20vh;
+        padding: 0 0;
+        border-top: 2px solid red;
+    }
+
+    .openMenu:hover p{
+        color: red;
+        flex-direction: column;
+    }
+
+    .openMenu .list--hidden .link{
+        padding-left: 0;
+
     }
 
     .openMenu>p{
-        align-self: center;
+        text-align: center;
         padding: 0 0;
+        position: relative;
     }
 
 }
