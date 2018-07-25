@@ -1,0 +1,129 @@
+.navBar{
+
+    background-color: #040404;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 6rem;
+}
+
+.container{
+    width: 100vw;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1180px;
+   }
+}
+
+.row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.row--50{
+    height: 50%;
+}
+
+
+
+.row--directionColumn{
+    flex-direction: column;
+}
+
+.col-50{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+
+.col-50--directionColumn{
+    flex-direction: column;
+}
+
+.listElement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+.listElement--20{
+    width: 20%;
+    height: 100%;
+}
+.listElement--33{
+    width: 33%;
+    height: 100%;
+
+}
+
+.listElement:hover{
+    color:#f93542;
+}
+
+.list{
+    display: flex;
+    list-style: none;
+    color: #f93542;
+    padding: 0 0;
+
+}
+
+
+.list--100{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 0;
+}
+
+.list--alignRight{
+    justify-content: flex-end;
+
+}
+
+.list--hidden{
+
+    display: none;
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    border-top: 2px solid #f93542;
+    background-color: #f1f1f1;
+    padding-left: 0;
+    top: 100%;
+    width: 20%;
+    color: black;
+    text-transform: none;
+}
+
+.list--hidden:hover{
+    display: block;
+}
+
+.list--100 .listElement:hover .list--hidden{
+    display: block;
+}
+
+
+.text--uppercase{
+    text-transform: uppercase;
+    color: white;
+}
+
+.text--bold{
+    font-weight: bold;
+}
+
+
+.backgroundImage{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
