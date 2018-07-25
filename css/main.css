@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    height: 6rem;
+    height: 5rem;
 }
 
 .container{
@@ -48,7 +48,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
- }
+    text-decoration: none;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+
+}
+
+.list--hidden .link{
+    padding-left: 1rem;
+}
+.link--colorWhite{
+    color:white;
+}
+
+.link:hover{
+    color: red;
+}
+
+.listElement:hover{
+    color:#f93542;
+}
+
+.listElement--alignLeft{
+    justify-content: flex-start;
+}
 
 .listElement--20{
     width: 20%;
@@ -57,11 +83,15 @@
 .listElement--33{
     width: 33%;
     height: 100%;
-
 }
 
-.listElement:hover{
-    color:#f93542;
+.listElement--33{
+    display: flex;
+    justify-content: center;
+}
+
+.listElement--33 img{
+    margin-right: 0.5rem;
 }
 
 .list{
@@ -71,8 +101,6 @@
     padding: 0 0;
 
 }
-
-
 .list--100{
     width: 100%;
     height: 100%;
@@ -82,19 +110,17 @@
 
 .list--alignRight{
     justify-content: flex-end;
-
 }
 
 .list--hidden{
-
     display: none;
     list-style: none;
-    text-align: center;
+    text-align: left;
     position: absolute;
-    border-top: 2px solid #f93542;
-    background-color: #f1f1f1;
+    border-top: 4px solid #f93542;
+    background-color: white;
     padding-left: 0;
-    top: 100%;
+    top: calc(100% - 4px);
     width: 20%;
     color: black;
     text-transform: none;
@@ -108,6 +134,9 @@
     display: block;
 }
 
+.listElement--padding{
+    padding: 1rem 0;
+}
 
 .text--uppercase{
     text-transform: uppercase;
