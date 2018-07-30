@@ -7,20 +7,38 @@ p{
     margin: 0 0;
 }
 
-body{
+body {
     font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    background: #2b2b2b url("../images/layer_mobile.png") no-repeat top;
+    background-size:  100vw 100vh;
+}
+
+span{
+    font-size: 13px;
 }
 
 .navBar{
-
+    position: relative;
     background-color: #040404;
     display: flex;
     justify-content: center;
     align-self: center;
-    height: 5rem;
+    height: 90px;
     width: 100vw;
 }
 
+.gradient{
+    position: absolute;
+    top: calc(100vh - 150px);
+    left: 0;
+    width: 100vw;
+    height: 150px;
+    background: linear-gradient(to top, rgba(43,43,43,1) 0%,rgba(43,43,43,0) 100%);
+    z-index: 2;
+    opacity: 0;
+}
 
 .container{
     width: 100%;
@@ -30,8 +48,24 @@ body{
     width: 100%;
     height: 100%;
     display: flex;
+}
+
+.row-colDirection{
+    flex-direction: column-reverse;
+    justify-content: flex-end;
 
 }
+
+.row--hidden{
+    display: none;
+    position: absolute;
+    top: 90px;
+    width: 62.5%;
+    max-width: 200px;
+    background: black;
+    z-index: 3;
+}
+
 
 .col-50{
     width: 50%;
@@ -44,53 +78,47 @@ body{
     justify-content: flex-end;
 }
 
-.row-colDirection{
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-
-}
-.row--hidden{
-    display: none;
-    position: absolute;
-    top: 80px;
-    width: 66%;
-    background: black;
-}
-
 .logo{
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
 .hamburgerMenu{
-    width: 50px;
-    height: 80px;
-    padding-right: 2rem;
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
     background-image: url("../images/hamburgermenu.png");
     background-position: center;
     background-size: cover;
 }
 
-
 .listElement{
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     display: flex;
     align-items: center;
 }
 
-.listElement--33{
-    color: red;
-    padding-left: 2rem;
+.listElement--30{
+    color: #f93542;
+    padding-left: 1rem;
+    padding-bottom: 0;
 }
 
-.listElement--33 img{
-
+.listElement--30 img{
     margin-right: 0.5rem;
+}
+
+.listElement--30:first-of-type {
+    padding-top: 3rem;
+}
+
+.listElement--30:first-of-type img{
+    margin-left: .25rem;
 }
 
 .link{
     text-decoration: none;
     color: black;
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
 .link--colorWhite{
@@ -99,7 +127,7 @@ body{
 }
 
 .link:hover{
-    color:red;
+    color:#f93542;
 }
 
 .text--uppercase{
@@ -110,27 +138,37 @@ body{
     font-weight: bold;
 }
 
+.list{
+    margin: 0 0;
+}
 
 .list--hidden{
     background-color: white;
+    overflow: hidden;
     display: none;
-    height: 0;
 }
-.openMenu{
+
+.list--hidden .listElement{
+    min-height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.subMenu{
     padding-top: 0;
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
-    height: calc(80% - 80px);
+    height: calc(80% - 90px);
 }
 
 
-.openMenu ul{
+.subMenu ul{
     width: 100%;
-    padding-left: 2rem;
+
 }
 
-.openMenu>p{
+.subMenu>p{
     width: 100%;
     align-self: flex-start;
     padding-top: 1rem;
@@ -138,8 +176,13 @@ body{
 }
 
 
-
+/* Bigger screens */
 @media all and (min-width: 1200px){
+
+    body{
+        font-family: 'Open Sans', sans-serif;
+        background-image: url("../images/background.png");
+    }
 
     .container{
         width: 1200px;
@@ -149,14 +192,35 @@ body{
         display: none;
     }
 
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .link--paddingLeft{
+        padding-left: 1rem;
+    }
+    .link--justifyCenter{
+        justify-content: center;
+    }
+    .link--justifyLeft{
+        justify-content: flex-start;
+    }
+
     .row--hidden{
         display: flex;
         position: inherit;
-        width: 100%
+        width: 100%;
+        max-width:100%;
     }
 
     .row--hidden>div{
         height: 40px;
+        width: 100%;
     }
     .row-colDirection{
         flex-direction: column;
@@ -180,8 +244,8 @@ body{
         padding: 0 0;
     }
 
-    .listElement--padding{
-        padding-left: 1rem;
+    .listElement--rightPadding{
+        padding-right: 1rem;
     }
 
     .listElement--alignLeft{
@@ -191,84 +255,122 @@ body{
     .listElement--20{
         width: 20%;
     }
-    .listElement--33{
-        width: 33%;
+    .listElement--30{
+        width: 30%;
+        font-size: 0.9rem;
+        justify-content: center;
     }
 
-    .openMenu:hover .list--hidden{
+    .listElement--30:first-of-type {
+        padding-top: 0;
+    }
+
+    .listElement--alignRight{
+        justify-content: flex-end;
+    }
+
+
+    .subMenu:hover .list--hidden{
         position: absolute;
         flex-direction: column;
         display: flex;
         z-index: 1;
-        top: 78px;
-        width: 10%;height: 20vh;
+        top: 86px;
+        width: 120px;
+        height: 20vh;
         padding: 0 0;
-        border-top: 2px solid red;
+        border-top: 4px solid #f93542;
     }
 
-    .openMenu:hover p{
-        color: red;
+    .list--hidden .listElement:first-of-type{
+        padding-top: 0;
+    }
+
+    .subMenu:hover p{
+        color: #f93542;
         flex-direction: column;
     }
 
-    .openMenu .list--hidden .link{
-        padding-left: 0;
-
-    }
-
-    .openMenu>p{
-        text-align: center;
-        padding: 0 0;
+    .subMenu>p{
         position: relative;
+        padding: 0 0;
+
     }
-
 }
-
-.backgroundImage{
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top:0;
-}
-
-
 
 /* Animations */
+/* Main menu Animations */
+.slideMainMenuFromTop{
+    display: flex;
+    overflow: hidden;
+    animation: ease;
+    animation-fill-mode: forwards;
+    animation-name: slideMainMenuFromTop;
+    animation-duration: 5s;
+}
 
-.sliderFromUp{
+@keyframes slideMainMenuFromTop {
+    0%{
+        height: 0;
+    }
+
+    100%{
+        height: calc(100vh + 60px);
+    }
+}
+
+.slideMainMenuToTop{
+    display: flex;
+    overflow: hidden;
+    animation: ease;
+    animation-fill-mode: forwards;
+    animation-name: slideMainMenuToTop;
+    animation-duration: 5s;
+}
+
+@keyframes slideMainMenuToTop {
+     0%{
+         height: calc(100vh + 60px);
+     }
+     100%{
+         height: 0;
+     }
+ }
+
+/* Submenu Animations */
+.submenuShowing{
     display: flex;
     flex-direction: column;
     animation: ease;
     animation-fill-mode: forwards;
-    animation-name: sliderFromUp;
+    animation-name: submenuShowing;
     animation-duration: 4s;
 }
 
-@keyframes sliderFromUp {
+@keyframes submenuShowing {
     0%{
         height: 0;
         width: 100%;
     }
 
     100%{
-        height: 20vh;
+        height: 150px;
         width: 100%;
     }
 }
 
-.hideToTop{
+.submenuHiding{
     display: flex;
     flex-direction: column;
     animation: ease;
     animation-fill-mode: forwards;
-    animation-name: hideToTop;
+    animation-name: submenuHiding;
     animation-duration: 4s;
 }
 
-@keyframes hideToTop {
+@keyframes submenuHiding {
     0%{
-        height: 20vh;
+        height: 150px;
         width: 100%;
     }
     90%{
@@ -281,39 +383,72 @@ body{
     }
 }
 
-.slideMainMenuFromTop{
-    display: flex;
-    overflow: hidden;
+
+
+/*Body Animations*/
+.bodyGrow{
     animation: ease;
     animation-fill-mode: forwards;
-    animation-name: slideMainMenuFromTop;
-    animation-duration: 4s;
+    animation-name: bodyGrow;
+    animation-duration: 5s;
 }
 
-@keyframes slideMainMenuFromTop {
+@keyframes bodyGrow{
     0%{
-        height: 0;
+        height: 100vh;
     }
     100%{
-        height: calc(100vh - 80px);
+        height: calc(100vh + 150px);
     }
 }
 
-
-.slideMainMenuToTop{
-    display: flex;
-    overflow: hidden;
+.bodyShrink{
     animation: ease;
     animation-fill-mode: forwards;
-    animation-name: slideMainMenuToTop;
-    animation-duration: 4s;
+    animation-name: bodyShrink;
+    animation-duration: 5s;
 }
 
-@keyframes slideMainMenuToTop {
+@keyframes bodyShrink{
     0%{
-        height: calc(100vh - 80px);
+        height: calc(100vh + 150px);
     }
     100%{
-        height: 0;
+        height: 100vh;
+    }
+}
+
+
+/*Gradient Animations*/
+.gradientShowing{
+    animation: ease;
+    animation-fill-mode: forwards;
+    animation-name: gradientShowing;
+    animation-duration: 5s;
+}
+
+@keyframes gradientShowing{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.gradientDisappear{
+    animation: ease;
+    animation-fill-mode: forwards;
+    animation-name: gradientDisappear;
+    animation-duration: 5s;
+
+}
+
+@keyframes gradientDisappear{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }

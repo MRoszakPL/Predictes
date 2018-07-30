@@ -1,63 +1,135 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const hamburgerMenu = document.querySelector('.hamburgerMenu');
-    const hiddenMenu = document.querySelector('.row--hidden');
-    const openMenu = document.querySelector('.openMenu');
+    const hamburgerMenuImage = document.querySelector('.hamburgerMenu');
     const hiddenSubMenu = document.querySelector('.list--hidden');
-    const notHamburgerMenu = document.querySelector('.backgroundImage');
 
-    console.log(hiddenSubMenu);
+    const subMenuButton = document.querySelector('.subMenu');
+    const hiddenMenu = document.querySelector('.row--hidden');
+
+    const bodyElement = document.querySelector('body');
+    const gradient = document.querySelector('.gradient');
 
     let stateOfMenu = 0;
     let stateOfSubMenu = 0;
 
-    hamburgerMenu.addEventListener('click', function () {
-        if(stateOfMenu === 0)
+
+    //Open/Close Hamburger Menu
+    hamburgerMenuImage.addEventListener('click', function (event) {
+        event.stopImmediatePropagation();
+
+            if(stateOfMenu === 0)
             {
-                hamburgerMenu.style.backgroundImage = "url('./images/X.png')";
+                hamburgerMenuImage.style.backgroundImage = "url('./images/X.svg')";
+
+                gradient.classList.remove('gradientDisappear');
+                gradient.classList.add('gradientShowing');
+
+                bodyElement.classList.remove('bodyShrink');
+                bodyElement.classList.add('bodyGrow');
+
                 hiddenMenu.classList.add("slideMainMenuFromTop");
                 hiddenMenu.classList.remove('slideMainMenuToTop');
+
                 stateOfMenu = 1;
             } else {
-                hamburgerMenu.style.backgroundImage = "url('./images/hamburgermenu.png')";
+
+                hamburgerMenuImage.style.backgroundImage = "url('./images/hamburgermenu.png')";
+
+                gradient.classList.remove('gradientShowing');
+                gradient.classList.add('gradientDisappear');
+
+                bodyElement.classList.remove('bodyGrow');
+                bodyElement.classList.add('bodyShrink');
+
                 hiddenMenu.classList.remove('slideMainMenuFromTop');
                 hiddenMenu.classList.add("slideMainMenuToTop");
+
                 stateOfMenu = 0;
             }
             if(stateOfSubMenu === 1){
-                hiddenSubMenu.classList.remove('sliderFromUp');
-                hiddenSubMenu.classList.add("hideToTop");
+                hiddenSubMenu.classList.remove('submenuShowing');
+                hiddenSubMenu.classList.add("submenuHiding");
                 stateOfSubMenu = 0;
             }
+
     });
 
-    notHamburgerMenu.addEventListener('click', function () {
-        if (stateOfMenu === 1) {
-            hamburgerMenu.style.backgroundImage = "url('./images/hamburgermenu.png')";
-            openMenu.style.color ="white";
-            hiddenMenu.classList.remove('slideMainMenuFromTop');
-            hiddenMenu.classList.add("slideMainMenuToTop");
-            hiddenSubMenu.classList.remove('sliderFromUp');
-            hiddenSubMenu.classList.add("hideToTop");
+
+    //Clear classes after resize > 1200
+    window.addEventListener("resize", function() {
+        if (window.matchMedia("(min-width: 1200px)").matches) {
+
+            hamburgerMenuImage.style.backgroundImage = "url('./images/hamburgermenu.png')";
+
+            gradient.classList.remove('gradientShowing');
+            gradient.classList.remove('gradientDisappear');
+
+            hiddenSubMenu.classList.remove('submenuHiding');
+            hiddenSubMenu.classList.remove('submenuShowing');
+
+            hiddenMenu.classList.remove("slideMainMenuToTop");
+            hiddenMenu.classList.remove("slideMainMenuFromTop");
+
+            bodyElement.classList.remove('bodyGrow');
+            bodyElement.classList.remove('bodyShrink');
+
             stateOfMenu = 0;
-        }
-    });
-
-    openMenu.addEventListener('click', function () {
-        if(stateOfSubMenu === 0)
-        {
-            openMenu.style.color ="red";
-            hiddenSubMenu.classList.add("sliderFromUp");
-            hiddenSubMenu.classList.remove('hideToTop');
-            stateOfSubMenu = 1;
-        } else {
-            openMenu.style.color ="white";
-            hiddenSubMenu.classList.remove('sliderFromUp');
-            hiddenSubMenu.classList.add("hideToTop");
             stateOfSubMenu = 0;
         }
+    });
+
+    //Menu will hide when click outside
+    bodyElement.addEventListener('click', function (event) {
+
+        if(stateOfMenu === 1)
+        {
+            hamburgerMenuImage.style.backgroundImage = "url('./images/hamburgermenu.png')";
+
+            hiddenMenu.classList.remove('slideMainMenuFromTop');
+            hiddenMenu.classList.add("slideMainMenuToTop");
+
+            gradient.classList.remove('gradientShowing');
+            gradient.classList.add('gradientDisappear');
+
+            bodyElement.classList.remove('bodyGrow');
+            bodyElement.classList.add('bodyShrink');
+
+            stateOfMenu = 0;
+        }
+        if(stateOfSubMenu === 1){
+            hiddenSubMenu.classList.remove('submenuShowing');
+            hiddenSubMenu.classList.add("submenuHiding");
+
+            stateOfSubMenu = 0;
+        }
+    });
+
+    //But not when sliderMenu was clicked
+    hiddenMenu.addEventListener('click', function (event) {
+        event.stopImmediatePropagation();
+    });
+
+    //Open menu event works only on smaller screen
+    subMenuButton.addEventListener('click', function () {
+        event.stopImmediatePropagation();
+
+        if(window.innerWidth<1200) {
+            if (stateOfSubMenu === 0) {
+                subMenuButton.style.color = "red";
+
+                hiddenSubMenu.classList.add("submenuShowing");
+                hiddenSubMenu.classList.remove('hideToTop');
+
+                stateOfSubMenu = 1;
+            } else {
+                subMenuButton.style.color = "white";
+
+                hiddenSubMenu.classList.remove('submenuShowing');
+                hiddenSubMenu.classList.add("submenuHiding");
+
+                stateOfSubMenu = 0;
+            }
+        }
     })
-
-
 
 });
