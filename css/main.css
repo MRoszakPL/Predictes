@@ -10,9 +10,10 @@ p{
 body {
     font-family: 'Open Sans', sans-serif;
     height: 100vh;
-    width: 100vw;
-    background: #2b2b2b url("../images/layer_mobile.png") no-repeat top;
-    background-size:  100vw 100vh;
+
+    background: #2b2b2b url("../images/background.png") no-repeat top;
+    background-size:  auto 100vh;
+    overflow-x: hidden;
 }
 
 span{
@@ -26,14 +27,14 @@ span{
     justify-content: center;
     align-self: center;
     height: 90px;
-    width: 100vw;
+    width: 100%;
 }
 
 .gradient{
     position: absolute;
-    top: calc(100vh - 150px);
+    bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 150px;
     background: linear-gradient(to top, rgba(43,43,43,1) 0%,rgba(43,43,43,0) 100%);
     z-index: 2;
@@ -42,6 +43,7 @@ span{
 
 .container{
     width: 100%;
+    overflow-x: hidden;
 }
 
 .row{
@@ -53,13 +55,13 @@ span{
 .row-colDirection{
     flex-direction: column-reverse;
     justify-content: flex-end;
-
 }
 
 .row--hidden{
     display: none;
     position: absolute;
     top: 90px;
+    right: 0;
     width: 62.5%;
     max-width: 200px;
     background: black;
@@ -72,6 +74,7 @@ span{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
 }
 
 .col-50--rightAlign{
@@ -165,7 +168,6 @@ span{
 
 .subMenu ul{
     width: 100%;
-
 }
 
 .subMenu>p{
@@ -182,6 +184,7 @@ span{
     body{
         font-family: 'Open Sans', sans-serif;
         background-image: url("../images/background.png");
+        background-size:  100vw auto;
     }
 
     .container{
@@ -299,6 +302,7 @@ span{
 }
 
 /* Animations */
+
 /* Main menu Animations */
 .slideMainMenuFromTop{
     display: flex;
@@ -306,7 +310,7 @@ span{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: slideMainMenuFromTop;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
 }
 
 @keyframes slideMainMenuFromTop {
@@ -315,7 +319,7 @@ span{
     }
 
     100%{
-        height: calc(100vh + 60px);
+        height: calc(100vh - 90px);
     }
 }
 
@@ -325,12 +329,12 @@ span{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: slideMainMenuToTop;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
 }
 
 @keyframes slideMainMenuToTop {
      0%{
-         height: calc(100vh + 60px);
+         height: calc(100vh - 90px);
      }
      100%{
          height: 0;
@@ -344,18 +348,16 @@ span{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: submenuShowing;
-    animation-duration: 4s;
+    animation-duration: 1.5s;
 }
 
 @keyframes submenuShowing {
     0%{
         height: 0;
-        width: 100%;
     }
 
     100%{
         height: 150px;
-        width: 100%;
     }
 }
 
@@ -365,66 +367,24 @@ span{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: submenuHiding;
-    animation-duration: 4s;
+    animation-duration: 1.5s;
 }
 
 @keyframes submenuHiding {
-    0%{
+    0% {
         height: 150px;
-        width: 100%;
-    }
-    90%{
-        height: 0;
-        width: 100%;
     }
     100%{
         height: 0;
-        width: 0;
     }
 }
-
-
-
-/*Body Animations*/
-.bodyGrow{
-    animation: ease;
-    animation-fill-mode: forwards;
-    animation-name: bodyGrow;
-    animation-duration: 5s;
-}
-
-@keyframes bodyGrow{
-    0%{
-        height: 100vh;
-    }
-    100%{
-        height: calc(100vh + 150px);
-    }
-}
-
-.bodyShrink{
-    animation: ease;
-    animation-fill-mode: forwards;
-    animation-name: bodyShrink;
-    animation-duration: 5s;
-}
-
-@keyframes bodyShrink{
-    0%{
-        height: calc(100vh + 150px);
-    }
-    100%{
-        height: 100vh;
-    }
-}
-
 
 /*Gradient Animations*/
 .gradientShowing{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: gradientShowing;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
 }
 
 @keyframes gradientShowing{
@@ -440,7 +400,7 @@ span{
     animation: ease;
     animation-fill-mode: forwards;
     animation-name: gradientDisappear;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
 
 }
 

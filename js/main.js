@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 gradient.classList.remove('gradientDisappear');
                 gradient.classList.add('gradientShowing');
 
-                bodyElement.classList.remove('bodyShrink');
-                bodyElement.classList.add('bodyGrow');
-
                 hiddenMenu.classList.add("slideMainMenuFromTop");
                 hiddenMenu.classList.remove('slideMainMenuToTop');
 
@@ -37,9 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 gradient.classList.remove('gradientShowing');
                 gradient.classList.add('gradientDisappear');
-
-                bodyElement.classList.remove('bodyGrow');
-                bodyElement.classList.add('bodyShrink');
 
                 hiddenMenu.classList.remove('slideMainMenuFromTop');
                 hiddenMenu.classList.add("slideMainMenuToTop");
@@ -53,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
     });
-
 
     //Clear classes after resize > 1200
     window.addEventListener("resize", function() {
@@ -69,9 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             hiddenMenu.classList.remove("slideMainMenuToTop");
             hiddenMenu.classList.remove("slideMainMenuFromTop");
-
-            bodyElement.classList.remove('bodyGrow');
-            bodyElement.classList.remove('bodyShrink');
 
             stateOfMenu = 0;
             stateOfSubMenu = 0;
@@ -90,9 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             gradient.classList.remove('gradientShowing');
             gradient.classList.add('gradientDisappear');
-
-            bodyElement.classList.remove('bodyGrow');
-            bodyElement.classList.add('bodyShrink');
 
             stateOfMenu = 0;
         }
@@ -117,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if (stateOfSubMenu === 0) {
                 subMenuButton.style.color = "red";
 
+                hiddenSubMenu.classList.remove("submenuHiding");
                 hiddenSubMenu.classList.add("submenuShowing");
-                hiddenSubMenu.classList.remove('hideToTop');
 
                 stateOfSubMenu = 1;
             } else {
